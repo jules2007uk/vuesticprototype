@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import AuthLayout from '../components/auth/AuthLayout'
 import AppLayout from '../components/admin/AppLayout'
+import { authGuard } from '../../src/auth/authGuard'
 
 Vue.use(Router)
 
@@ -90,6 +91,12 @@ export default new Router({
               name: 'myvue1',
               path: 'myvue1',
               component: () => import('../components/jw/myvue1.vue'),
+            },
+            {
+              name: 'authonly',
+              path: 'authonly',
+              component: () => import('../components/jw/authonly.vue'),
+              beforeEnter: authGuard,
             },
           ],
         },

@@ -23,6 +23,10 @@ export const navigationRoutes = {
           name: 'myvue1',
           displayName: 'Test 1',
         },
+        {
+          name: 'authonly',
+          displayName: 'Authenticated Only',
+        },
       ],
     },
     {

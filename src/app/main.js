@@ -13,6 +13,12 @@ import '../i18n/index'
 import YmapPlugin from 'vue-yandex-maps'
 import VueClipboard from 'vue-clipboard2'
 
+// Import the Auth0 configuration
+import { domain, clientId } from '../../auth_config.json'
+
+// Import the plugin here
+import { Auth0Plugin } from '../auth'
+
 import '../metrics'
 import '../registerServiceWorker'
 
@@ -32,6 +38,19 @@ Vue.use(VueClipboard)
 
 Vue.use(ColorThemePlugin, {
   // override colors here.
+})
+
+// Install the authentication plugin here
+Vue.use(Auth0Plugin, {
+  domain,
+  clientId,
+  onRedirectCallback: appState => {
+    router.push(
+      appState && appState.targetUrl
+        ? appState.targetUrl
+        : window.location.pathname,
+    )
+  },
 })
 
 router.beforeEach((to, from, next) => {

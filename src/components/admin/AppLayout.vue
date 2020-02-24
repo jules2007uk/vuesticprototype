@@ -69,6 +69,7 @@ export default {
       this.setTheme('corporate')
     }
     this.$root.$on('change-theme', this.setTheme)
+    this.setTheme('corporate') // set the default theme on page load
   },
   beforeDestroy () {
     this.$root.$off('change-theme', this.setTheme)
