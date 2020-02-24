@@ -82,6 +82,18 @@ export default new Router({
           default: true,
         },
         {
+          name: 'jw',
+          path: 'jw',
+          component: EmptyParentComponent,
+          children: [
+            {
+              name: 'myvue1',
+              path: 'myvue1',
+              component: () => import('../components/jw/myvue1.vue'),
+            },
+          ],
+        },
+        {
           name: 'statistics',
           path: 'statistics',
           component: EmptyParentComponent,

@@ -12,6 +12,20 @@ export const navigationRoutes = {
       },
     },
     {
+      name: 'jw',
+      displayName: 'JW Test',
+      meta: {
+        iconClass: 'vuestic-iconset vuestic-iconset-statistics',
+      },
+      disabled: true,
+      children: [
+        {
+          name: 'myvue1',
+          displayName: 'Test 1',
+        },
+      ],
+    },
+    {
       name: 'statistics',
       displayName: 'menu.statistics',
       meta: {
